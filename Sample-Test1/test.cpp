@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "../Project1/SimilarityChecker.cpp"
 
-TEST(SimilarityTest, GetScoreOfLength) {
+TEST(SimilarityTest, GetMaxScoreWhenSameLength) {
     string str1 = "ASD";
     string str2 = "DSA";
 
