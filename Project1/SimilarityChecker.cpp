@@ -7,25 +7,25 @@ class SimilarityChecker
 public:
     int getScoreOfLength(const string& str1, const string& str2)
     {
-        if (str1.length() == str2.length())
+        int shorterLength = min(str1.length(), str2.length());
+        int longerLength = max(str1.length(), str2.length());;
+
+        if (shorterLength == longerLength)
         {
             return MAX_SCORE_OF_LENGTH;
         }
 
-        if (((str1.length() == 1) && (str2.length() == 2))
-            || ((str1.length() == 2) && (str2.length() == 1)))
+        if ((shorterLength == 1) && (longerLength == 2))
         {
             return 0;
         }
 
-        if (((str1.length() == 5) && (str2.length() == 3))
-            || ((str1.length() == 3) && (str2.length() == 5)))
+        if ((shorterLength == 3) && (longerLength == 5))
         {
             return 20;
         }
 
-        if (((str1.length() == 2) && (str2.length() == 3))
-            || ((str1.length() == 3) && (str2.length() == 2)))
+        if ((shorterLength == 2) && (longerLength == 3))
         {
             return 30;
         }
