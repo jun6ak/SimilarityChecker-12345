@@ -20,17 +20,7 @@ public:
             return 0;
         }
 
-        if ((shorterLength == 3) && (longerLength == 5))
-        {
-            return 20;
-        }
-
-        if ((shorterLength == 2) && (longerLength == 3))
-        {
-            return 30;
-        }
-
-        return 0;
+        return ((2 * shorterLength - longerLength) * MAX_SCORE_OF_LENGTH / shorterLength);
     }
 
 private:
