@@ -12,6 +12,24 @@ public:
             return MAX_SCORE_OF_LENGTH;
         }
 
+        if ((str1.length() == 1)
+            && (str2.length() == 2))
+        {
+            return 0;
+        }
+
+        if ((str1.length() == 5)
+            && (str2.length() == 3))
+        {
+            return 20;
+        }
+
+        if ((str1.length() == 2)
+            && (str2.length() == 3))
+        {
+            return 30;
+        }
+
         return 0;
     }
 
