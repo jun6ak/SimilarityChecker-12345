@@ -15,6 +15,7 @@ TEST(SimilarityTest, GetScoreOfLength_A_BB) {
 
     SimilarityChecker checker;
     EXPECT_EQ(0, checker.getScoreOfLength(str1, str2));
+    EXPECT_EQ(0, checker.getScoreOfLength(str2, str1));
 }
 
 TEST(SimilarityTest, GetScoreOfLength_AAABB_BAA) {
@@ -23,6 +24,7 @@ TEST(SimilarityTest, GetScoreOfLength_AAABB_BAA) {
 
     SimilarityChecker checker;
     EXPECT_EQ(20, checker.getScoreOfLength(str1, str2));
+    EXPECT_EQ(20, checker.getScoreOfLength(str2, str1));
 }
 
 TEST(SimilarityTest, GetScoreOfLength_AA_AAE) {
@@ -31,4 +33,5 @@ TEST(SimilarityTest, GetScoreOfLength_AA_AAE) {
 
     SimilarityChecker checker;
     EXPECT_EQ(30, checker.getScoreOfLength(str1, str2));
+    EXPECT_EQ(30, checker.getScoreOfLength(str2, str1));
 }
