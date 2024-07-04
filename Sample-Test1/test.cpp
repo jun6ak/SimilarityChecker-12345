@@ -29,6 +29,13 @@ TEST_F(SimilarityCheckTestFixture, GetScoreOfLength_A_BB) {
     checkScoreOfLength(str1, str2, 0);
 }
 
+TEST_F(SimilarityCheckTestFixture, GetScoreOfLength_A_BBB) {
+    string str1 = "A";
+    string str2 = "BBB";
+
+    checkScoreOfLength(str1, str2, 0);
+}
+
 TEST_F(SimilarityCheckTestFixture, GetScoreOfLength_AAABB_BAA) {
     string str1 = "AAABB";
     string str2 = "BAA";
