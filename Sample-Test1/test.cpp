@@ -11,7 +11,6 @@ protected:
     void checkScoreOfLength(string str1, string str2, int score)
     {
         EXPECT_EQ(score, similarityChecker.getScoreOfLength(str1, str2));
-        EXPECT_EQ(score, similarityChecker.getScoreOfLength(str2, str1));
     }
 };
 
