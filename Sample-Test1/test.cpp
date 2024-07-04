@@ -57,3 +57,11 @@ TEST_F(SimilarityCheckTestFixture, GetScoreOfLength_AA_AAE) {
     checkScoreOfLength(str2, str1, 30);
     checkScoreOfCharacters(str2, str1, 32);
 }
+
+TEST_F(SimilarityCheckTestFixture, GetScoreOfLength_AaA_AAE) {
+    string str1 = "AaA";
+    string str2 = "AAE";
+
+    checkScoreOfLength(str2, str1, 60);
+    checkScoreOfCharacters(str2, str1, 32);
+}
