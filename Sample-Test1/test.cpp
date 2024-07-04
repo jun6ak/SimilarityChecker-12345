@@ -12,13 +12,19 @@ protected:
     {
         EXPECT_EQ(score, similarityChecker.getScoreOfLength(str1, str2));
     }
+
+    void checkScoreOfCharacters(string str1, string str2, int score)
+    {
+        EXPECT_EQ(score, similarityChecker.getScoreOfCharacters(str1, str2));
+    }
 };
 
-TEST_F(SimilarityCheckTestFixture, GetMaxScoreWhenSameLength) {
+TEST_F(SimilarityCheckTestFixture, GetScore_ASD_DSA) {
     string str1 = "ASD";
     string str2 = "DSA";
 
     checkScoreOfLength(str1, str2, 60);
+    checkScoreOfCharacters(str1, str2, 40);
 }
 
 TEST_F(SimilarityCheckTestFixture, GetScoreOfLength_A_BB) {
