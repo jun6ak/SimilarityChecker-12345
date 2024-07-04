@@ -8,40 +8,17 @@ class SimilarityChecker
 public:
     int getScoreOfCharacters(const string& str1, const string& str2)
     {
-        bool letters[27] = { };
-
-        for (int i = 0; i < str1.length(); i++)
-        {
-            for (int j = 0; j < str2.length(); j++)
-            {
-                if (str1[i] == str2[j])
-                {
-                    letters[str1[i] - 'A'] = true;
-                }
-            }
-        }
-
         int sameCount = 0;
+        int totalCount = 0;
 
-        for (int i = 0; i < str1.length(); i++)
-        {
-            if (letters[str1[i] - 'A'] == true)
-            {
-                sameCount++;
-            }
-        }
+        updateExistedLetters(str1, str2);
 
-        for (int i = 0; i < str2.length(); i++)
-        {
-            if (letters[str2[i] - 'A'] == true)
-            {
-                sameCount++;
-            }
-        }
+        sameCount += getSameCount(str1);
+        sameCount += getSameCount(str2);
 
-        int totoalCount = str1.length() + str2.length();
+        totalCount = str1.length() + str2.length();
 
-        return sameCount * MAX_SCORE_OF_CHARACTER / totoalCount;
+        return sameCount * MAX_SCORE_OF_CHARACTER / totalCount;
     }
 
     int getScoreOfLength(const string& str1, const string& str2)
@@ -63,6 +40,8 @@ public:
     }
 
 private:
+    bool letters[27];
+
     const int MAX_SCORE_OF_LENGTH = 60;
     const int MAX_SCORE_OF_CHARACTER = 40;
 
@@ -71,13 +50,43 @@ private:
         return ((2 * shorterLength - longerLength) * MAX_SCORE_OF_LENGTH / shorterLength);
     }
 
-    bool isSame(int shorterLength, int longerLength)
+    bool isSame(int comp1, int comp2)
     {
-        return shorterLength == longerLength;
+        return comp1 == comp2;
     }
 
     bool isOverDouble(int shorterLength, int longerLength)
     {
         return (2 * shorterLength) <= longerLength;
+    }
+
+    int getSameCount(const std::string& str)
+    {
+        int sameCount = 0;
+
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (letters[str[i] - 'A'] == true)
+            {
+                sameCount++;
+            }
+        }
+
+        return sameCount;
+    }
+
+    void updateExistedLetters(const std::string& str1, const std::string& str2)
+    {
+        memset(letters, 0, sizeof(letters));
+
+        for (int i = 0; i < str1.length(); i++)
+        {
+            for (int j = 0; j < str2.length(); j++)
+            {
+                if (false == isSame(str1[i], str2[j])) continue;
+
+                letters[str1[i] - 'A'] = true;
+            }
+        }
     }
 };
