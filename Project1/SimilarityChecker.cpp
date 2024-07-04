@@ -10,19 +10,34 @@ public:
         int shorterLength = min(str1.length(), str2.length());
         int longerLength = max(str1.length(), str2.length());;
 
-        if (shorterLength == longerLength)
+        if (true == isSame(shorterLength, longerLength))
         {
             return MAX_SCORE_OF_LENGTH;
         }
 
-        if ((2* shorterLength) <= longerLength)
+        if (true == isOverDouble(shorterLength, longerLength))
         {
             return 0;
         }
 
-        return ((2 * shorterLength - longerLength) * MAX_SCORE_OF_LENGTH / shorterLength);
+        return getLengthPoint(shorterLength, longerLength);
     }
 
 private:
     const int MAX_SCORE_OF_LENGTH = 60;
+
+    int getLengthPoint(int shorterLength, int longerLength)
+    {
+        return ((2 * shorterLength - longerLength) * MAX_SCORE_OF_LENGTH / shorterLength);
+    }
+
+    bool isSame(int shorterLength, int longerLength)
+    {
+        return shorterLength == longerLength;
+    }
+
+    bool isOverDouble(int shorterLength, int longerLength)
+    {
+        return (2 * shorterLength) <= longerLength;
+    }
 };
