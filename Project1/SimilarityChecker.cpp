@@ -7,6 +7,23 @@ class SimilarityChecker
 public:
     int getScoreOfCharacters(const string& str1, const string& str2)
     {
+        int count = 0;
+        for (int i = 0; i < str1.length(); i++)
+        {
+            for (int j = 0; j < str2.length(); j++)
+            {
+                if (str1[i] == str2[j])
+                {
+                    count++;
+                }
+            }
+        }
+
+        if (0 == count)
+        {
+            return 0;
+        }
+
         return 40;
     }
 
