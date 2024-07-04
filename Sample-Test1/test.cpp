@@ -55,4 +55,5 @@ TEST_F(SimilarityCheckTestFixture, GetScoreOfLength_AA_AAE) {
     string str2 = "AAE";
 
     checkScoreOfLength(str2, str1, 30);
+    checkScoreOfCharacters(str2, str1, 32);
 }

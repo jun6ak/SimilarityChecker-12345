@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -24,7 +25,40 @@ public:
             return 0;
         }
 
-        return MAX_SCORE_OF_CHARACTER;
+        bool letters[27] = { };
+
+        for (int i = 0; i < str1.length(); i++)
+        {
+            for (int j = 0; j < str2.length(); j++)
+            {
+                if (str1[i] == str2[j])
+                {
+                    letters[str1[i] - 'A'] = true;
+                }
+            }
+        }
+
+        int sameCount = 0;
+
+        for (int i = 0; i < str1.length(); i++)
+        {
+            if (letters[str1[i] - 'A'] == true)
+            {
+                sameCount++;
+            }
+        }
+
+        for (int i = 0; i < str2.length(); i++)
+        {
+            if (letters[str1[i] - 'A'] == true)
+            {
+                sameCount++;
+            }
+        }
+
+        int totoalCount = str1.length() + str2.length();
+
+        return sameCount * MAX_SCORE_OF_CHARACTER / totoalCount;
     }
 
     int getScoreOfLength(const string& str1, const string& str2)
