@@ -8,7 +8,7 @@ public:
     int getScoreOfLength(const string& str1, const string& str2)
     {
         int shorterLength = min(str1.length(), str2.length());
-        int longerLength = max(str1.length(), str2.length());;
+        int longerLength = max(str1.length(), str2.length());
 
         if (true == isSame(shorterLength, longerLength))
         {
