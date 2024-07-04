@@ -24,7 +24,7 @@ public:
             return 0;
         }
 
-        return 40;
+        return MAX_SCORE_OF_CHARACTER;
     }
 
     int getScoreOfLength(const string& str1, const string& str2)
@@ -47,6 +47,7 @@ public:
 
 private:
     const int MAX_SCORE_OF_LENGTH = 60;
+    const int MAX_SCORE_OF_CHARACTER = 40;
 
     int getLengthPoint(int shorterLength, int longerLength)
     {
