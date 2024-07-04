@@ -15,8 +15,7 @@ public:
             return MAX_SCORE_OF_LENGTH;
         }
 
-        if (((shorterLength == 1) && (longerLength == 2))
-            || ((shorterLength == 1) && (longerLength == 3)))
+        if ((2* shorterLength) <= longerLength)
         {
             return 0;
         }
