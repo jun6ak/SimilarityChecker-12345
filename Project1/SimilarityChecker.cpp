@@ -79,13 +79,18 @@ private:
 
         for (int i = 0; i < str.length(); i++)
         {
-            if (false == letters[str[i] - 'A']) continue;
+            if (false == letters[getCapitalIndex(str[i])]) continue;
             if (false == isCapitalLetter(str[i])) continue;
 
             sameCount++;
         }
 
         return sameCount;
+    }
+
+    int getCapitalIndex(const char ch)
+    {
+        return (ch - 'A');
     }
 
     void updateBothExistedLetters(const std::string& str1, const std::string& str2)
@@ -99,7 +104,7 @@ private:
                 if (false == isSame(str1[i], str2[j])) continue;
                 if (false == isCapitalLetter(str1[i])) continue;
 
-                letters[str1[i] - 'A'] = true;
+                letters[getCapitalIndex(str1[i])] = true;
             }
         }
     }
